@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Peliculas
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,7 +9,10 @@
 <ion-content [fullscreen]="true">
   <ion-slides mode="ios" pager="ios">
     <ion-slide  *ngFor="let pelicula of discover">
-      <h1>{{ pelicula.title }}</h1>
+      <ion-card>
+        <h1>{{ pelicula.title }}</h1>
+        <img [src]="pelicula.backdrop_path | imagen">
+      </ion-card>
     </ion-slide>
   </ion-slides>
 </ion-content>

@@ -8,9 +8,8 @@ import { ResulTMDB, Movies } from '../Interfaces/Interfaces';
 })
 export class Tab1Page implements OnInit {
 
-  discover: Movies[]=[
-    
-  ];
+  discover: Movies[]=[];
+  popularity: Movies []=[];
 
   constructor(private dataMovies: DataMoviesService) {
   }
@@ -20,11 +19,20 @@ export class Tab1Page implements OnInit {
     this.dataMovies.getDiscover().
         subscribe(
           resp=>{
-          console.log(resp)
+          //console.log(resp)
           this.discover = resp.results;
-          }
-        );
+          });
+
+        
+    this.dataMovies.getPopularity().
+    subscribe(
+      resp=>{
+      //console.log(resp)
+      this.popularity = resp.results;
+      });
 
   }
+
+  
 
 }

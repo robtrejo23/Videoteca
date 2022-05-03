@@ -1,10 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Peliculas
+      Tab 1
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-slides-backdrop [discover]="discover"> </app-slides-backdrop>
+  <app-slides-poster [discover]="discover" title="Cartelera"></app-slides-poster>
+  <app-slides-poster [discover]="popularity" title="Peliculas Popuplares"></app-slides-poster> 
+
+  <!---<ion-grid fixed>
+  <ion-row>
+    <ion-col>
+      <h3>Peliculas Recientes</h3>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
 
 <ion-content [fullscreen]="true">
   <ion-slides mode="ios" pager="ios">
@@ -14,5 +28,5 @@
         <img [src]="pelicula.backdrop_path | imagen">
       </ion-card>
     </ion-slide>
-  </ion-slides>
+  </ion-slides>-->
 </ion-content>

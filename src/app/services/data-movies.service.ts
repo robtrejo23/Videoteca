@@ -1,6 +1,6 @@
 import { Injectable, Query } from '@angular/core';
 import{ HttpClient} from '@angular/common/http';
-import { ResulTMDB } from '../Interfaces/Interfaces';
+import { ResultDetails, ResulTMDB, Cast, ResultCredits } from '../Interfaces/Interfaces';
 import { environment } from 'src/environments/environment';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 
@@ -18,7 +18,7 @@ export class DataMoviesService {
   private execQuery<T>(query: string){
     query = URL + query; //'https://api.themoviedb.org/3/discover/movie
     query += `&api_key=${API_KEY}&language=es`;
-    
+    //console.log(query);
     return this.http.get<T>(query);
  
   }
@@ -50,5 +50,14 @@ export class DataMoviesService {
 
   getPopularity(){
     return this.execQuery<ResulTMDB>(`/discover/movie?sort_by=popularity.asc`);
+  }
+
+  
+  getDetails(id: number){
+    return this.execQuery<ResultDetails>(`/movie/${id}?a=1`);
+  }
+
+  getCredits(id: number){
+    return this.execQuery<ResultCredits>(`/movie/${id}/credits?a=1`);
   }
 }
